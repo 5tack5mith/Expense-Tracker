@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addTransaction, loadTransactions } from '../utils/moneywiseStorage'
+import { addTransaction } from '../utils/moneywiseStorage'
 
 const CATEGORIES = [
   'Food',
@@ -83,10 +83,6 @@ function AddExpense() {
       type: form.type,
       notes: form.notes.trim(),
     }
-
-    // Keep this explicit so we have the latest array when debugging Step 4 later.
-    const existing = loadTransactions()
-    void existing
 
     addTransaction(transaction)
     navigate('/view-expenses', { replace: true })

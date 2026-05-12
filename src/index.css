@@ -1,17 +1,20 @@
 /* Theme tokens (default: light) */
 :root {
-  --bg: #caf0f8;
-  --page-bg: #f4fcff;
-  --text: #03045e;
-  --muted: #144a78;
-  --border: #90e0ef;
+  --bg: #f4ede4;
+  --page-bg: #ffffff;
+  --text: #2f2f2f;
+  --muted: #5a5a5a;
+  --border: #e0d6c8;
   --shadow: 0 14px 28px rgba(15, 23, 42, 0.07);
-  --brand: #0077b6;
-  --brand-hover: #00b4d8;
-  --brand-soft: rgba(144, 224, 239, 0.25);
-  --accent: #90e0ef;
+  --brand: #e8afa3;
+  --brand-hover: #d88c7a;
+  --brand-soft: #f2c6b8;
+  --accent: #a3b18a;
+  --secondary: #7c8a6a;
+  --secondary-hover: #5f6e58;
+  --secondary-soft: #a3b18a;
   --danger: #ef4444;
-  --focus-ring: rgba(0, 119, 182, 0.35);
+  --focus-ring: rgba(216, 140, 122, 0.35);
 
   font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
   color: var(--text);
@@ -23,17 +26,20 @@
 }
 
 html[data-theme='dark'] {
-  --bg: #0a0a14;
-  --page-bg: rgba(20, 18, 42, 0.92);
-  --text: #f5f4ff;
-  --muted: #d2cfee;
-  --border: rgba(152, 131, 255, 0.28);
+  --bg: #1f1d1b;
+  --page-bg: #2f2b27;
+  --text: #f5f2ed;
+  --muted: #cfc7bc;
+  --border: #3a3530;
   --shadow: 0 20px 36px rgba(2, 2, 8, 0.6);
-  --brand: #8b5cf6;
-  --brand-hover: #a78bfa;
-  --brand-soft: rgba(167, 139, 250, 0.18);
-  --accent: #c4b5fd;
-  --focus-ring: rgba(196, 181, 253, 0.52);
+  --brand: #d88c7a;
+  --brand-hover: #e8afa3;
+  --brand-soft: #a96f63;
+  --accent: #8fa07a;
+  --secondary: #8fa07a;
+  --secondary-hover: #a3b18a;
+  --secondary-soft: #5f6e58;
+  --focus-ring: rgba(232, 175, 163, 0.45);
 }
 
 * {
@@ -43,17 +49,11 @@ html[data-theme='dark'] {
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(1200px 600px at 20% 0%, rgba(0, 119, 182, 0.2), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(0, 180, 216, 0.2), transparent 55%),
-    linear-gradient(135deg, rgba(202, 240, 248, 0.96) 0%, rgba(244, 252, 255, 0.98) 100%);
+  background: linear-gradient(140deg, #f4ede4 0%, #e6d5c3 100%);
 }
 
 html[data-theme='dark'] body {
-  background:
-    radial-gradient(900px 520px at 8% 10%, rgba(255, 235, 205, 0.5), transparent 55%),
-    radial-gradient(1000px 620px at 42% 8%, rgba(167, 139, 250, 0.44), transparent 62%),
-    radial-gradient(1000px 620px at 72% 35%, rgba(124, 58, 237, 0.28), transparent 66%),
-    linear-gradient(125deg, #14152b 12%, #2b2d63 45%, #151832 72%, #0b0d1b 100%);
+  background: linear-gradient(140deg, #1f1d1b 0%, #2a2724 100%);
 }
 
 #root {
@@ -95,8 +95,7 @@ p {
   right: 1.15rem;
 }
 
-.auth-card,
-.dashboard-card {
+.auth-card {
   width: min(100%, 430px);
   background: var(--page-bg);
   border-radius: 16px;
@@ -109,8 +108,7 @@ p {
   backdrop-filter: blur(3px);
 }
 
-.auth-card h1,
-.dashboard-card h1 {
+.auth-card h1 {
   margin-bottom: 0.5rem;
 }
 
@@ -131,8 +129,7 @@ p {
   border-radius: 8px;
 }
 
-.auth-card p,
-.dashboard-card p {
+.auth-card p {
   color: var(--muted);
 }
 
@@ -149,7 +146,7 @@ p {
 
 .auth-form input {
   width: 100%;
-  border: 1px solid rgba(209, 213, 219, 0.9);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 0.7rem 0.85rem;
   font-size: 0.95rem;
@@ -184,7 +181,7 @@ p {
 }
 
 .success-text {
-  color: #16a34a;
+  color: var(--secondary);
   font-size: 0.92rem;
   font-weight: 700;
 }
@@ -195,7 +192,7 @@ p {
   grid-template-columns: 1fr 1fr;
   gap: 0.45rem;
   border: 1px solid var(--border);
-  background: rgba(148, 163, 184, 0.08);
+  background: var(--brand-soft);
   padding: 0.25rem;
   border-radius: 12px;
 }
@@ -217,6 +214,19 @@ p {
 
 .app-shell {
   min-height: 100vh;
+  background-image:
+    linear-gradient(90deg, rgba(244, 237, 228, 0.82) 0%, rgba(244, 237, 228, 0.58) 42%, rgba(244, 237, 228, 0.34) 72%),
+    url('/app-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html[data-theme='dark'] .app-shell {
+  background-image:
+    linear-gradient(90deg, rgba(31, 29, 27, 0.84) 0%, rgba(31, 29, 27, 0.62) 45%, rgba(31, 29, 27, 0.4) 74%),
+    url('/app-bg.png');
 }
 
 .top-navbar {
@@ -235,7 +245,7 @@ p {
 }
 
 html[data-theme='dark'] .top-navbar {
-  background: rgba(10, 10, 20, 0.86);
+  background: rgba(31, 29, 27, 0.88);
 }
 
 .brand {
@@ -330,11 +340,11 @@ html[data-theme='dark'] .nav-link {
 }
 
 html[data-theme='dark'] .icon-btn {
-  background: rgba(139, 92, 246, 0.18);
+  background: rgba(216, 140, 122, 0.2);
 }
 
 html[data-theme='dark'] .icon-btn:hover {
-  background: rgba(167, 139, 250, 0.3);
+  background: rgba(232, 175, 163, 0.3);
 }
 
 .icon-btn svg {
@@ -375,10 +385,6 @@ html[data-theme='dark'] .icon-btn:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
   margin-top: 1rem;
-}
-
-.summary-row-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .summary-row-3-custom {
@@ -456,11 +462,6 @@ html[data-theme='dark'] .icon-btn:hover {
   background: rgba(239, 68, 68, 0.06);
 }
 
-.summary-sub {
-  font-weight: 800;
-  color: var(--muted);
-}
-
 .summary-foot {
   margin-top: 0.45rem;
   color: var(--muted);
@@ -530,14 +531,14 @@ html[data-theme='dark'] .icon-btn:hover {
 }
 
 html[data-theme='dark'] .table th {
-  background: rgba(139, 92, 246, 0.26);
-  color: #f5f4ff;
-  border-bottom-color: rgba(196, 181, 253, 0.35);
+  background: rgba(216, 140, 122, 0.26);
+  color: var(--text);
+  border-bottom-color: rgba(58, 53, 48, 0.7);
 }
 
 html[data-theme='dark'] .table td {
   color: var(--text);
-  border-bottom-color: rgba(196, 181, 253, 0.18);
+  border-bottom-color: rgba(58, 53, 48, 0.7);
 }
 
 .table td {
@@ -671,7 +672,7 @@ html[data-theme='dark'] .table td {
 }
 
 html[data-theme='dark'] .chart-canvas {
-  background: rgba(30, 27, 56, 0.75);
+  background: rgba(47, 43, 39, 0.82);
 }
 
 .modal-backdrop {
@@ -715,16 +716,15 @@ html[data-theme='dark'] .chart-canvas {
 html[data-theme='dark'] .summary-item,
 html[data-theme='dark'] .profile-item,
 html[data-theme='dark'] .empty-state {
-  background: rgba(31, 26, 56, 0.82);
+  background: rgba(47, 43, 39, 0.86);
 }
 
 html[data-theme='dark'] .summary-label,
-html[data-theme='dark'] .summary-sub,
 html[data-theme='dark'] .summary-foot,
 html[data-theme='dark'] .muted-text,
 html[data-theme='dark'] .empty-desc,
 html[data-theme='dark'] .profile-label {
-  color: #d8d3f2;
+  color: #9a9388;
 }
 
 html[data-theme='dark'] .notes-cell {
@@ -779,7 +779,7 @@ html[data-theme='dark'] .notes-cell {
 .field select,
 .field textarea {
   width: 100%;
-  border: 1px solid rgba(209, 213, 219, 0.9);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0.75rem 0.85rem;
   font-size: 0.95rem;

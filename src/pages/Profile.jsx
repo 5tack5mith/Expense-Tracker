@@ -26,7 +26,7 @@ function Profile() {
   return (
     <section className="page-card">
       <h1>Profile</h1>
-      <p className="muted-text">Your locally saved account details.</p>
+
 
       {!user ? (
         <div className="empty-state">
